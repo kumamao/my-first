@@ -1,0 +1,373 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+featured: true
+component: true
+---
+
+```svelte name="ButtonDemo"
+<script lang="ts">
+import { ArrowUpIcon } from "@lucide/svelte"
+
+import { Button } from "@/components/ui/button"
+</script>
+
+<div class="flex flex-wrap items-center gap-2 md:flex-row">
+  <Button variant="outline">Button</Button>
+  <Button variant="outline" size="icon" aria-label="Submit">
+    <ArrowUpIcon />
+  </Button>
+</div>
+
+```
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-slot
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="button" title="components/ui/button.svelte" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```ts
+import { Button } from "@/components/ui/button"
+```
+
+```svelte
+<Button variant="outline">Button</Button>
+```
+
+## Cursor
+
+Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
+
+If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+
+```css showLineNumbers title="globals.css"
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
+## Examples
+
+### Size
+
+Use the `size` prop to change the size of the button.
+
+```svelte name="ButtonSize"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+import { ArrowUpRightIcon } from "@lucide/svelte";
+</script>
+
+<div class="flex flex-col items-start gap-8 sm:flex-row">
+  <div class="flex items-start gap-2">
+    <Button size="xs" variant="outline">
+      Extra Small
+    </Button>
+    <Button size="icon-xs" aria-label="Submit" variant="outline">
+      <ArrowUpRightIcon />
+    </Button>
+  </div>
+  <div class="flex items-start gap-2">
+    <Button size="sm" variant="outline">
+      Small
+    </Button>
+    <Button size="icon-sm" aria-label="Submit" variant="outline">
+      <ArrowUpRightIcon />
+    </Button>
+  </div>
+  <div class="flex items-start gap-2">
+    <Button variant="outline">Default</Button>
+    <Button size="icon" aria-label="Submit" variant="outline">
+      <ArrowUpRightIcon />
+    </Button>
+  </div>
+  <div class="flex items-start gap-2">
+    <Button variant="outline" size="lg">
+      Large
+    </Button>
+    <Button size="icon-lg" aria-label="Submit" variant="outline">
+      <ArrowUpRightIcon />
+    </Button>
+  </div>
+</div>
+
+```
+
+### Default
+
+```svelte name="ButtonDefault"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button>Button</Button>
+
+```
+
+### Outline
+
+```svelte name="ButtonOutline"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button variant="outline">Outline</Button>
+
+```
+
+### Secondary
+
+```svelte name="ButtonSecondary"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button variant="secondary">Secondary</Button>
+
+```
+
+### Ghost
+
+```svelte name="ButtonGhost"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button variant="ghost">Ghost</Button>
+
+```
+
+### Destructive
+
+```svelte name="ButtonDestructive"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button variant="destructive">Destructive</Button>
+
+```
+
+### Link
+
+```svelte name="ButtonLink"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+</script>
+
+<Button variant="link">Link</Button>
+
+```
+
+### Icon
+
+```svelte name="ButtonIcon"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+import { CircleFadingArrowUpIcon } from "@lucide/svelte";
+</script>
+
+<Button variant="outline" size="icon">
+  <CircleFadingArrowUpIcon />
+</Button>
+
+```
+
+### With Icon
+
+Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the icon for the correct spacing.
+
+```svelte name="ButtonWithIcon"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+import { IconGitBranch, IconGitFork } from "@tabler/icons-svelte";
+</script>
+
+<div class="flex gap-2">
+  <Button variant="outline">
+    <IconGitBranch data-icon="inline-start" /> New Branch
+  </Button>
+  <Button variant="outline">
+    Fork
+    <IconGitFork data-icon="inline-end" />
+  </Button>
+</div>
+
+```
+
+### Rounded
+
+Use the `rounded-full` class to make the button rounded.
+
+```svelte name="ButtonRounded"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+import { ArrowUpIcon } from "@lucide/svelte";
+</script>
+
+<div class="flex gap-2">
+  <Button class="rounded-full">Get Started</Button>
+  <Button variant="outline" size="icon" class="rounded-full">
+    <ArrowUpIcon />
+  </Button>
+</div>
+
+```
+
+### Spinner
+
+Render a `<Spinner />` component inside the button to show a loading state. Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the spinner for the correct spacing.
+
+```svelte name="ButtonLoading"
+<script lang="ts">
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
+</script>
+
+<div class="flex gap-2">
+  <Button variant="outline" disabled>
+    <Spinner data-icon="inline-start" />
+    Generating
+  </Button>
+  <Button variant="secondary" disabled>
+    Downloading
+    <Spinner data-icon="inline-start" />
+  </Button>
+</div>
+
+```
+
+### Link
+
+You can use the `buttonVariants` helper to make a link look like a button.
+
+**Do not use `<Button render={<a />} nativeButton={false} />` for links.** The Base UI `Button` component always applies `role="button"`, which overrides the semantic link role on `<a>` elements. Use `buttonVariants` with a plain `<a>` tag instead.
+
+```svelte name="ButtonRender"
+<script lang="ts">
+import { buttonVariants } from "@/components/ui/button";
+</script>
+
+<a
+  href="#"
+  class={buttonVariants({ variant: "secondary", size: "sm" })}
+>
+  Login
+</a>
+
+```
+
+## RTL
+
+To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
+
+```svelte name="ButtonRtl"
+<script lang="ts">
+import { Button } from "@/examples/base/ui-rtl/button";
+import { Spinner } from "@/examples/base/ui-rtl/spinner";
+import { ArrowRightIcon, PlusIcon } from "@lucide/svelte";
+
+import {
+  useTranslation,
+  type Translations,
+} from "@/components/language-selector";
+
+const translations: Translations = {
+  en: {
+    dir: "ltr",
+    values: {
+      button: "Button",
+      submit: "Submit",
+      delete: "Delete",
+      loading: "Loading",
+    },
+  },
+  ar: {
+    dir: "rtl",
+    values: {
+      button: "زر",
+      submit: "إرسال",
+      delete: "حذف",
+      loading: "جاري التحميل",
+    },
+  },
+  he: {
+    dir: "rtl",
+    values: {
+      button: "כפתור",
+      submit: "שלח",
+      delete: "מחק",
+      loading: "טוען",
+    },
+  },
+};
+
+const translation = useTranslation(translations, "ar");
+const { dir, t } = $derived(translation());
+</script>
+
+<div class="flex flex-wrap items-center gap-2 md:flex-row" dir={dir}>
+  <Button variant="outline">{t.button}</Button>
+  <Button variant="destructive">{t.delete}</Button>
+  <Button variant="outline">
+    {t.submit}{" "}
+    <ArrowRightIcon class="rtl:rotate-180" data-icon="inline-end" />
+  </Button>
+  <Button variant="outline" size="icon" aria-label="Add">
+    <PlusIcon />
+  </Button>
+  <Button variant="secondary" disabled>
+    <Spinner data-icon="inline-start" /> {t.loading}
+  </Button>
+</div>
+
+```
+
+## API Reference
+
+### Button
+
+The `Button` component is a wrapper around the `button` element that adds a variety of styles and functionality.
+
+| Prop      | Type                                                                                 | Default     |
+| --------- | ------------------------------------------------------------------------------------ | ----------- |
+| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"`        | `"default"` |
+| `size`    | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | `"default"` |

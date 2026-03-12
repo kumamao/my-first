@@ -1,0 +1,93 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+component: true
+---
+
+```svelte name="BadgeDemo" showLineNumbers title="Badge" description="A default badge"
+<script lang="ts">
+  import { Badge } from '@/components/ui/badge';
+  import { BadgeCheckIcon } from '@lucide/svelte';
+</script>
+
+<div class="flex flex-col items-center gap-2">
+  <div class="flex w-full flex-wrap gap-2">
+    <Badge>Badge</Badge>
+    <Badge variant="secondary">Secondary</Badge>
+    <Badge variant="destructive">Destructive</Badge>
+    <Badge variant="outline">Outline</Badge>
+  </div>
+  <div class="flex w-full flex-wrap gap-2">
+    <Badge variant="secondary" class="bg-blue-500 text-white dark:bg-blue-600">
+      <BadgeCheckIcon />
+      Verified
+    </Badge>
+    <Badge class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">8</Badge>
+    <Badge class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums" variant="destructive">
+      99
+    </Badge>
+    <Badge class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums" variant="outline">
+      20+
+    </Badge>
+  </div>
+</div>
+
+```
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add badge
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/ui/badge.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```ts
+import { Badge } from '@/components/ui/badge';
+```
+
+```svelte
+<Badge variant="default | outline | secondary | destructive">Badge</Badge>
+```
+
+### Link
+
+You can use the `asChild` snippet to make another component look like a badge. Here's an example of a link that looks like a badge.
+
+```svelte showLineNumbers
+<script lang="ts">
+  import { Badge } from '@/components/ui/badge';
+</script>
+
+<Badge>
+  {#snippet asChild(props)}
+    <a {...props} href="/">Badge</a>
+  {/snippet}
+</Badge>
+```

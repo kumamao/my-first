@@ -1,0 +1,201 @@
+@layer theme, base, components, utilities;
+
+:root {
+  --surface: #f8f8f8;
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: #f2f2f2;
+  --code-number: #747474;
+  --selection: #0a0a0a;
+  --selection-foreground: #fff;
+}
+
+.dark {
+  --surface: #161616;
+  --surface-foreground: #a1a1a1;
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: #262626;
+  --code-number: #a4a4a4;
+  --selection: #e5e5e5;
+  --selection-foreground: #171717;
+}
+
+@supports (color: lab(0% 0 0)) {
+  :root,
+  :host {
+    --background: lab(100% 0 0);
+    --foreground: lab(2.75381% 0 0);
+    --card: lab(100% 0 0);
+    --card-foreground: lab(2.75381% 0 0);
+    --popover: lab(100% 0 0);
+    --popover-foreground: lab(2.75381% 0 0);
+    --primary: lab(7.78201% -0.0000149012 0);
+    --primary-foreground: lab(98.26% 0 0);
+    --secondary: lab(96.52% -0.0000298023 0.0000119209);
+    --secondary-foreground: lab(7.78201% -0.0000149012 0);
+    --muted: lab(96.52% -0.0000298023 0.0000119209);
+    --muted-foreground: lab(48.496% 0 0);
+    --accent: lab(96.52% -0.0000298023 0.0000119209);
+    --accent-foreground: lab(7.78201% -0.0000149012 0);
+    --destructive: lab(48.4493% 77.4328 61.5452);
+    --border: lab(90.952% 0 -0.0000119209);
+    --input: lab(90.952% 0 -0.0000119209);
+    --ring: lab(66.128% -0.0000298023 0.0000119209);
+    --sidebar: lab(98.26% 0 0);
+    --sidebar-foreground: lab(2.75381% 0 0);
+    --sidebar-primary: lab(7.78201% -0.0000149012 0);
+    --sidebar-primary-foreground: lab(98.26% 0 0);
+    --sidebar-accent: lab(96.52% -0.0000298023 0.0000119209);
+    --sidebar-accent-foreground: lab(7.78201% -0.0000149012 0);
+    --sidebar-border: lab(90.952% 0 -0.0000119209);
+    --sidebar-ring: lab(66.128% -0.0000298023 0.0000119209);
+    --surface: lab(97.68% -0.0000298023 0.0000119209);
+    --code-highlight: lab(95.36% 0 0);
+    --code-number: lab(48.96% 0 0);
+    --selection: lab(2.75381% 0 0);
+    --selection-foreground: lab(100% 0 0);
+  }
+
+  .dark {
+    --background: lab(2.75381% 0 0);
+    --foreground: lab(98.26% 0 0);
+    --card: lab(7.78201% -0.0000149012 0);
+    --card-foreground: lab(98.26% 0 0);
+    --popover: lab(15.204% 0 -0.00000596046);
+    --popover-foreground: lab(98.26% 0 0);
+    --primary: lab(90.952% 0 -0.0000119209);
+    --primary-foreground: lab(7.78201% -0.0000149012 0);
+    --secondary: lab(15.204% 0 -0.00000596046);
+    --secondary-foreground: lab(98.26% 0 0);
+    --muted: lab(15.204% 0 -0.00000596046);
+    --muted-foreground: lab(66.128% -0.0000298023 0.0000119209);
+    --accent: lab(27.036% 0 0);
+    --accent-foreground: lab(98.26% 0 0);
+    --destructive: lab(63.7053% 60.745 31.3109);
+    --border: lab(100% 0 0 / 0.1);
+    --input: lab(100% 0 0 / 0.15);
+    --ring: lab(48.496% 0 0);
+    --sidebar: lab(7.78201% -0.0000149012 0);
+    --sidebar-foreground: lab(98.26% 0 0);
+    --sidebar-primary: lab(36.9089% 35.0961 -85.6872);
+    --sidebar-primary-foreground: lab(98.26% 0 0);
+    --sidebar-accent: lab(15.204% 0 -0.00000596046);
+    --sidebar-accent-foreground: lab(98.26% 0 0);
+    --sidebar-border: lab(100% 0 0 / 0.1);
+    --sidebar-ring: lab(34.924% 0 0);
+    --surface: lab(7.22637% -0.0000149012 0);
+    --surface-foreground: lab(66.128% -0.0000298023 0.0000119209);
+    --code-highlight: lab(15.32% 0 0);
+    --code-number: lab(67.52% -0.0000298023 0);
+    --selection: lab(90.952% 0 -0.0000119209);
+    --selection-foreground: lab(7.78201% -0.0000149012 0);
+  }
+}
+
+@layer theme {
+  :root {
+    --color-code: var(--code);
+    --color-code-foreground: var(--code-foreground);
+    --color-code-highlight: var(--code-highlight);
+    --color-code-number: var(--code-number);
+  }
+}
+
+@layer components {
+  [data-rehype-pretty-code-figure] {
+    background-color: var(--color-code);
+    color: var(--color-code-foreground);
+    border-radius: var(--radius-lg);
+    border-width: 0;
+    border-color: var(--border);
+    margin-top: calc(var(--spacing) * 6);
+    font-size: var(--text-sm);
+    margin-inline: calc(var(--spacing) * -1);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    [data-rehype-pretty-code-title] {
+      border-bottom: color-mix(in oklab, var(--border) 30%, transparent);
+    }
+  }
+
+  [data-rehype-pretty-code-title] {
+    padding-block: calc(var(--spacing) * 2.5);
+    padding-inline: calc(var(--spacing) * 4);
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    color: var(--color-code-foreground);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+
+  @media (min-width: 48rem) {
+    [data-rehype-pretty-code-figure] {
+      margin-inline: calc(var(--spacing) * -1);
+    }
+  }
+
+  [data-line] {
+    padding-top: calc(var(--spacing) * 0.5);
+    padding-bottom: calc(var(--spacing) * 0.5);
+    min-height: calc(var(--spacing) * 1);
+    width: 100%;
+    display: inline-block;
+  }
+
+  /* Query-based Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    [data-line] span {
+      color: var(--shiki-dark) !important;
+    }
+  }
+
+  /* Class-based Dark Mode */
+  [data-line] span:is(.dark *) {
+    color: var(--shiki-dark) !important;
+  }
+
+  [data-line-numbers] {
+    white-space: pre;
+    counter-reset: line;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: 0 0;
+    border: 0;
+    min-width: 100%;
+    padding: 0;
+    display: grid;
+  }
+  [data-line-numbers] [data-line]::before {
+    font-size: var(--text-sm);
+    counter-increment: line;
+    content: counter(line);
+    width: calc(var(--spacing) * 16);
+    padding-right: calc(var(--spacing) * 6);
+    text-align: right;
+    color: var(--color-code-number);
+    background-color: var(--color-code);
+    display: inline-block;
+    position: sticky;
+    left: 0;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .bg-code {
+    background-color: var(--code);
+  }
+
+  .text-code {
+    color: var(--code);
+  }
+}
