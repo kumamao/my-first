@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button } from '@/components/ui/button';
-	import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from '@/components/ui/button-group';
 	import { ArrowLeftIcon, ArrowRightIcon, MinusIcon, PlusIcon } from '@lucide/svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from '$lib/components/ui/button-group';
 </script>
 
 <ButtonGroup>

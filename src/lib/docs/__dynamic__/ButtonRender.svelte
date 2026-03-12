@@ -1,5 +1,5 @@
 <script lang="ts">
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "$lib/components/ui/button";
 </script>
 
 <a

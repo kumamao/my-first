@@ -9,7 +9,7 @@ component: true
 <script lang="ts">
 import { ArrowUpIcon } from "@lucide/svelte"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "$lib/components/ui/button"
 </script>
 
 <div class="flex flex-wrap items-center gap-2 md:flex-row">
@@ -62,7 +62,7 @@ npm install @radix-ui/react-slot
 ## Usage
 
 ```ts
-import { Button } from "@/components/ui/button"
+import { Button } from "$lib/components/ui/button"
 ```
 
 ```svelte
@@ -92,7 +92,7 @@ Use the `size` prop to change the size of the button.
 
 ```svelte name="ButtonSize"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 import { ArrowUpRightIcon } from "@lucide/svelte";
 </script>
 
@@ -135,7 +135,7 @@ import { ArrowUpRightIcon } from "@lucide/svelte";
 
 ```svelte name="ButtonDefault"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button>Button</Button>
@@ -146,7 +146,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonOutline"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button variant="outline">Outline</Button>
@@ -157,7 +157,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonSecondary"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button variant="secondary">Secondary</Button>
@@ -168,7 +168,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonGhost"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button variant="ghost">Ghost</Button>
@@ -179,7 +179,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonDestructive"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button variant="destructive">Destructive</Button>
@@ -190,7 +190,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonLink"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 </script>
 
 <Button variant="link">Link</Button>
@@ -201,7 +201,7 @@ import { Button } from "@/components/ui/button";
 
 ```svelte name="ButtonIcon"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 import { CircleFadingArrowUpIcon } from "@lucide/svelte";
 </script>
 
@@ -217,7 +217,7 @@ Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attri
 
 ```svelte name="ButtonWithIcon"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 import { IconGitBranch, IconGitFork } from "@tabler/icons-svelte";
 </script>
 
@@ -239,7 +239,7 @@ Use the `rounded-full` class to make the button rounded.
 
 ```svelte name="ButtonRounded"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 import { ArrowUpIcon } from "@lucide/svelte";
 </script>
 
@@ -258,8 +258,8 @@ Render a `<Spinner />` component inside the button to show a loading state. Reme
 
 ```svelte name="ButtonLoading"
 <script lang="ts">
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
+import { Button } from "$lib/components/ui/button";
+import { Spinner } from "$lib/components/ui/spinner";
 </script>
 
 <div class="flex gap-2">
@@ -283,7 +283,7 @@ You can use the `buttonVariants` helper to make a link look like a button.
 
 ```svelte name="ButtonRender"
 <script lang="ts">
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "$lib/components/ui/button";
 </script>
 
 <a
@@ -301,14 +301,14 @@ To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl)
 
 ```svelte name="ButtonRtl"
 <script lang="ts">
-import { Button } from "@/examples/base/ui-rtl/button";
-import { Spinner } from "@/examples/base/ui-rtl/spinner";
+import { Button } from "$lib/examples/base/ui-rtl/button";
+import { Spinner } from "$lib/examples/base/ui-rtl/spinner";
 import { ArrowRightIcon, PlusIcon } from "@lucide/svelte";
 
 import {
   useTranslation,
   type Translations,
-} from "@/components/language-selector";
+} from "$lib/components/language-selector";
 
 const translations: Translations = {
   en: {

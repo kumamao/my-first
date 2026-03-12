@@ -1,12 +1,12 @@
 <script lang="ts">
-import { Button } from "@/examples/base/ui-rtl/button";
-import { Spinner } from "@/examples/base/ui-rtl/spinner";
+import { Button } from "$lib/examples/base/ui-rtl/button";
+import { Spinner } from "$lib/examples/base/ui-rtl/spinner";
 import { ArrowRightIcon, PlusIcon } from "@lucide/svelte";
 
 import {
   useTranslation,
   type Translations,
-} from "@/components/language-selector";
+} from "$lib/components/language-selector";
 
 const translations: Translations = {
   en: {

@@ -6,16 +6,16 @@
   import SiTypescript from '@icons-pack/svelte-simple-icons/icons/SiTypescript';
   import SiSvelte from '@icons-pack/svelte-simple-icons/icons/SiSvelte';
   import SiCss from '@icons-pack/svelte-simple-icons/icons/SiCss';
-  import { Button } from '@/components/ui/button';
   import { IconCopy, IconTerminal } from '@tabler/icons-svelte';
-  import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+  import { Button } from '$lib/components/ui/button';
+  import { Tabs, TabsContent, TabsList, TabsTrigger } from '$lib/components/ui/tabs';
   import { componentsContext } from '../layouts/index.svelte';
 
   import {
     LanguageSelector,
     setTranslations,
     type TranslationsContext
-  } from '@/components/language-selector';
+  } from '$lib/components/language-selector';
 
   let {
     children,

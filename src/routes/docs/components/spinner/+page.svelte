@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Badge } from '@/components/ui/badge';
-	import { Button } from '@/components/ui/button';
-	import { Spinner } from '@/components/ui/spinner';
+	import { Badge } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
+	import { Spinner } from '$lib/components/ui/spinner';
 </script>
 
 <div class="flex items-center gap-6">

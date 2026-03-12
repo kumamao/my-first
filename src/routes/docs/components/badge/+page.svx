@@ -6,7 +6,7 @@ component: true
 
 ```svelte name="BadgeDemo" showLineNumbers title="Badge" description="A default badge"
 <script lang="ts">
-  import { Badge } from '@/components/ui/badge';
+  import { Badge } from '$lib/components/ui/badge';
   import { BadgeCheckIcon } from '@lucide/svelte';
 </script>
 
@@ -69,7 +69,7 @@ npx shadcn@latest add badge
 ## Usage
 
 ```ts
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '$lib/components/ui/badge';
 ```
 
 ```svelte
@@ -82,7 +82,7 @@ You can use the `asChild` snippet to make another component look like a badge. H
 
 ```svelte showLineNumbers
 <script lang="ts">
-  import { Badge } from '@/components/ui/badge';
+  import { Badge } from '$lib/components/ui/badge';
 </script>
 
 <Badge>

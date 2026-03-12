@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Spinner } from '@/components/ui/spinner';
+  import { Spinner } from '$lib/components/ui/spinner';
 
   let props = $props();
 </script>

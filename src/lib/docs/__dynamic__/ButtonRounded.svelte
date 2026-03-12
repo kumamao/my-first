@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Button } from "@/components/ui/button";
+import { Button } from "$lib/components/ui/button";
 import { ArrowUpIcon } from "@lucide/svelte";
 </script>
 
